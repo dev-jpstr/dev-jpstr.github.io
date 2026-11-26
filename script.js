@@ -1,48 +1,37 @@
-// Fade-in ao rolar a página
+(() => {
+  const root = document.documentElement;
 
-const observer = new IntersectionObserver((entries) => {
+  // Tema claro/escuro (lembra a escolha)
+  document.querySelector(".theme-btn")?.addEventListener("click", () => {
+    const next = root.dataset.theme === "dark" ? "light" : "dark";
+    root.dataset.theme = next;
+    try { localStorage.setItem("theme", next); } catch (e) {}
+  });
 
-    entries.forEach((entry) => {
+  // Menu no celular
+  const menuBtn = document.querySelector(".menu-btn");
+  const nav = document.getElementById("menu");
+  menuBtn?.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", String(open));
+  });
+  nav?.addEventListener("click", (e) => {
+    if (e.target.tagName === "A") {
+      nav.classList.remove("open");
+      menuBtn?.setAttribute("aria-expanded", "false");
+    }
+  });
 
-        if(entry.isIntersecting){
-            entry.target.classList.add("show");
-        }
-
+  // Filtros da página de projetos
+  const buttons = document.querySelectorAll(".filters button");
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      buttons.forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+      const filter = btn.dataset.filter;
+      document.querySelectorAll("[data-cat]").forEach((el) => {
+        const cats = el.dataset.cat.split(" ");
+        el.classList.toggle("hidden", filter !== "todos" && !cats.includes(filter));
+      });
     });
-
-},{
-    threshold:0.15
-});
-
-document.querySelectorAll(".reveal").forEach((el)=>{
-    observer.observe(el);
-});
-
-
-// Navbar transparente ao topo
-
-window.addEventListener("scroll", ()=>{
-
-    const header = document.querySelector("header");
-
-    if(window.scrollY > 50){
-        header.classList.add("scrolled");
-    }else{
-        header.classList.remove("scrolled");
-    }
-
-});
-
-
-// Efeito parallax leve
-
-window.addEventListener("scroll", ()=>{
-
-    const hero = document.querySelector(".hero");
-
-    if(hero){
-        hero.style.backgroundPositionY =
-        window.scrollY * 0.3 + "px";
-    }
-
-});
+  });
+})();
