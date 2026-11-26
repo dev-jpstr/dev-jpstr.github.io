@@ -1,261 +1,115 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Projetos |  João Pedro Guebur Strapasson</title>
-
+<title>Projetos | João Pedro Strapasson</title>
+<meta name="description" content="Games, sites e infraestrutura Linux feitos por João Pedro Strapasson.">
+<meta name="theme-color" content="#10b981">
+<meta property="og:title" content="Projetos | João Pedro Strapasson">
+<meta property="og:description" content="Games, sites e infraestrutura Linux feitos por João Pedro Strapasson.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2310b981'/%3E%3Ctext x='50' y='68' font-size='52' font-weight='800' text-anchor='middle' fill='white' font-family='sans-serif'%3EJP%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script>try{document.documentElement.dataset.theme=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light')}catch(e){}</script>
 <link rel="stylesheet" href="style.css">
-
 </head>
-
 <body>
 
-<header>
-
-<div class="container">
-
-<div class="logo">
-JP
-</div>
-
-<nav>
-<a href="index.html">Início</a>
-<a href="index.html#sobre">Sobre</a>
-<a href="projetos.html">Projetos</a>
-<a href="index.html#contato">Contato</a>
-</nav>
-
-</div>
-
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="index.html">JP</a>
+    <button class="menu-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">☰</button>
+    <nav id="menu"><a href="index.html">Início</a><a href="projetos.html" aria-current="page">Projetos</a><a href="jogos.html">Jogos</a><a href="index.html#sobre">Sobre</a><a href="index.html#contato">Contato</a><button class="theme-btn" aria-label="Alternar tema claro e escuro">🌓</button></nav>
+  </div>
 </header>
 
-<section class="hero-projects reveal">
-
-<div class="container">
-
-<span class="badge">
-🚀 Meus Projetos
-</span>
-
-<h1>
-Projetos &
-<span>Experimentos</span>
-</h1>
-
-<p>
-
-Projetos desenvolvidos para praticar programação,
-infraestrutura Linux e desenvolvimento de produtos digitais.
-
-</p>
-
-</div>
-
+<main>
+<section class="page-hero">
+  <div class="container">
+    <h1>Projetos</h1>
+    <p class="lead">O que já está no ar e o que vem por aí. Os marcados como "Em breve" são os próximos que vou construir.</p>
+    <div class="filters" role="group" aria-label="Filtrar projetos">
+      <button data-filter="todos" aria-pressed="true">Todos</button>
+      <button data-filter="games" aria-pressed="false">Games</button>
+      <button data-filter="sites" aria-pressed="false">Sites</button>
+      <button data-filter="infra" aria-pressed="false">Infraestrutura</button>
+    </div>
+  </div>
 </section>
-
-<section class="stats reveal">
-
-<div class="stat-card">
-<h2>💻</h2>
-<p>Desenvolvimento Web</p>
-</div>
-
-<div class="stat-card">
-<h2>📱</h2>
-<p>Aplicações Mobile</p>
-</div>
-
-<div class="stat-card">
-<h2>🐧</h2>
-<p>Linux & Infraestrutura</p>
-</div>
-
-<div class="stat-card">
-<h2>🚀</h2>
-<p>Projetos Online</p>
-</div>
-
+<section style="padding-top:8px">
+  <div class="container">
+    <div class="grid">
+      <article class="card" data-cat="sites infra">
+        <span class="badge">Online</span>
+        <h3>UmSpotQualquer</h3>
+        <p>Plataforma para compartilhar e descobrir locais, hospedada no meu servidor.</p>
+        <div class="chips"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Nginx</span></div>
+        <a href="https://umspotqualquer.shop:4040" target="_blank" rel="noopener" class="btn">Visitar</a>
+      </article>
+      <article class="card" data-cat="games">
+        <span class="badge">Jogável</span>
+        <h3>Snake</h3>
+        <p>O clássico em JavaScript puro, com recorde salvo e controles para teclado e celular.</p>
+        <div class="chips"><span>JavaScript</span><span>Canvas</span></div>
+        <a href="jogos.html" class="btn">Jogar</a>
+      </article>
+      <article class="card" data-cat="infra">
+        <span class="badge">Em uso</span>
+        <h3>Servidor Linux</h3>
+        <p>Ubuntu Server com Nginx e SSH que hospeda meus projetos.</p>
+        <div class="chips"><span>Ubuntu</span><span>Nginx</span><span>SSH</span></div>
+        <a href="projetos/servidor-linux.html" class="btn">Ver detalhes</a>
+      </article>
+      <article class="card" data-cat="sites">
+        <span class="badge">Online</span>
+        <h3>Este portfólio</h3>
+        <p>Site feito do zero com HTML, CSS e JavaScript, com tema claro e escuro.</p>
+        <div class="chips"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+        <a href="index.html" class="btn">Ver</a>
+      </article>
+      <article class="card planned" data-cat="games sites">
+        <span class="badge soon">Em breve</span>
+        <h3>Code Bot</h3>
+        <p>Puzzle em que você programa um robô com JavaScript para sair de labirintos. Cada fase ensina um conceito novo de código.</p>
+        <div class="chips"><span>JavaScript</span><span>Canvas</span></div>
+        
+      </article>
+      <article class="card planned" data-cat="games infra">
+        <span class="badge soon">Em breve</span>
+        <h3>Arena Online</h3>
+        <p>Jogo multiplayer em tempo real com WebSockets, com servidor em Java rodando no meu Ubuntu.</p>
+        <div class="chips"><span>Java</span><span>WebSocket</span><span>Linux</span></div>
+        
+      </article>
+      <article class="card planned" data-cat="games">
+        <span class="badge soon">Em breve</span>
+        <h3>Mundo Procedural</h3>
+        <p>Gerador de ilhas e mapas a partir de uma seed. Compartilhe a seed e todo mundo vê o mesmo mundo.</p>
+        <div class="chips"><span>JavaScript</span><span>Canvas</span></div>
+        
+      </article>
+      <article class="card planned" data-cat="infra sites">
+        <span class="badge soon">Em breve</span>
+        <h3>Painel do Servidor</h3>
+        <p>Dashboard público com uptime, uso de CPU e memória do meu servidor, atualizado em tempo real.</p>
+        <div class="chips"><span>JavaScript</span><span>Nginx</span><span>Python</span></div>
+        
+      </article>
+      <article class="card planned" data-cat="games sites">
+        <span class="badge soon">Em breve</span>
+        <h3>Editor de Fases</h3>
+        <p>Editor visual no navegador que exporta fases em JSON para usar nos meus jogos.</p>
+        <div class="chips"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+        
+      </article>
+    </div>
+  </div>
 </section>
+</main>
 
-<section class="container reveal">
-
-<h2 class="section-title">
-🌟 Destaques
-</h2>
-
-<div class="projects-grid">
-
-<div class="project-card">
-
-<div class="project-icon">
-🌎
-</div>
-
-<h3>UmSpotQualquer</h3>
-
-<p>
-
-Plataforma para compartilhamento e descoberta
-de locais desenvolvida e hospedada por mim.
-
-</p>
-
-<div class="project-techs">
-
-<span>HTML</span>
-<span>CSS</span>
-<span>JavaScript</span>
-<span>Nginx</span>
-<span>Linux</span>
-
-</div>
-
-<a
-href="https://umspotqualquer.shop:4040"
-target="_blank"
-class="project-btn">
-
-Visitar Projeto
-
-</a>
-
-</div>
-
-<div class="project-card">
-
-<div class="project-icon">
-🖥️
-</div>
-
-<h3>Servidor Linux</h3>
-
-<p>
-
-Infraestrutura Ubuntu Server utilizada para
-hospedar aplicações e serviços próprios.
-
-</p>
-
-<div class="project-techs">
-
-<span>Ubuntu</span>
-<span>Linux</span>
-<span>Nginx</span>
-<span>SSH</span>
-
-</div>
-
-<a
-href="projetos/servidor-linux.html"
-class="project-btn">
-
-Ver Projeto
-
-</a>
-
-</div>
-
-<div class="project-card">
-
-<div class="project-icon">
-🎨
-</div>
-
-<h3>Portfólio</h3>
-
-<p>
-
-Site criado para apresentar meus projetos,
-habilidades e tecnologias.
-
-</p>
-
-<div class="project-techs">
-
-<span>HTML</span>
-<span>CSS</span>
-<span>JavaScript</span>
-
-</div>
-
-<a
-href="index.html"
-class="project-btn">
-
-Ver Projeto
-
-</a>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="container reveal">
-
-<div class="featured-card">
-
-<h2>🧠 Tecnologias Utilizadas</h2>
-
-<p>
-
-Durante meus projetos utilizo tecnologias para
-desenvolvimento web, mobile e infraestrutura.
-
-</p>
-
-<div class="project-techs">
-
-<span>🟧 HTML5</span>
-<span>🔵 CSS3</span>
-<span>🟨 JavaScript</span>
-<span>☕ Java</span>
-<span>🤖 Kotlin</span>
-<span>🐍 Python</span>
-<span>🐧 Linux</span>
-<span>🌍 Nginx</span>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="container reveal">
-
-<div class="featured-card">
-
-<h2>📈 Evolução</h2>
-
-<p>
-
-Meu objetivo é continuar desenvolvendo aplicações,
-explorando novas tecnologias e construindo soluções
-cada vez mais completas.
-
-Novos projetos serão adicionados futuramente.
-
-</p>
-
-</div>
-
-</section>
-
-<footer>
-
-<p>
-© 2026 João Pedro Guebur Strapasson
-</p>
-
-</footer>
-
+<footer><p>© 2026 João Pedro Guebur Strapasson</p></footer>
 <script src="script.js"></script>
-
 </body>
-
 </html>
